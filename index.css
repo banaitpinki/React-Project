@@ -1,0 +1,51 @@
+.stepper-horizontal li{
+    list-style-type: none;
+    float: left;
+    width:33.33%;
+    position: relative;
+    text-align: center;
+}
+
+.stepper-horizontal{
+    counter-reset: step;
+}
+
+.stepper-horizontal li:before{
+    content:counter(step);
+    counter-increment:step;
+    width:20px;
+    height: 20px;
+    border: 1px solid;
+    display: block;
+    text-align: center;
+    margin:0 auto 10px auto;
+    border-radius: 50px;
+    background-color:white;
+}
+
+.stepper-horizontal li:after{
+   content:"";
+   position: absolute;
+   width:100%;
+   height: 1px;
+   background-color:#ddd;
+   top:15px;
+   left:-50%;
+   z-index: -1;
+}
+
+.stepper-horizontal li:first-child:after{
+    content:none;  
+ }
+
+ .stepper-horizontal li.active{
+    color:green 
+ }
+
+ .stepper-horizontal li.active:before{
+   border-color:green ;
+ }
+
+ .stepper-horizontal li.active +li:after{
+    background-color:green ;
+  }
